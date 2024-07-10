@@ -58,4 +58,4 @@ jobs:
           git remote set-url origin https://x-access-token:${{ secrets.GH_TOKE }}@github.com/${{ github.repository }}
           git add README.md stats.svg
           git commit -m "Update GitHub Stats"
-          git push origin HEAD:master
+          git push origin HEAD:main
