@@ -50,11 +50,12 @@ jobs:
           echo '![](./stats.svg)' > README.md
 
       - name: Commit changes
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKE }}
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git remote set-url origin https://x-access-token:${{ secrets.GH_TOKE }}@github.com/${{ github.repository }}
           git add README.md stats.svg
           git commit -m "Update GitHub Stats"
           git push
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKE }}
