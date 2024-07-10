@@ -44,9 +44,9 @@ jobs:
 
       - name: Generate GitHub Stats
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKE }}
         run: |
-          curl -o stats.svg "https://github-readme-stats.vercel.app/api?username=tijcesar&hide_title=false&hide_rank=false&show_icons=true&include_all_commits=true&count_private=true&disable_animations=false&theme=dracula&locale=en&hide_border=false&token=${{ secrets.GH_TOKEN }}"
+          curl -o stats.svg "https://github-readme-stats.vercel.app/api?username=tijcesar&hide_title=false&hide_rank=false&show_icons=true&include_all_commits=true&count_private=true&disable_animations=false&theme=dracula&locale=en&hide_border=false&token=${{ secrets.GH_TOKE }}"
           echo '![](./stats.svg)' > README.md
 
       - name: Commit changes
@@ -57,4 +57,4 @@ jobs:
           git commit -m "Update GitHub Stats"
           git push
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKE }}
